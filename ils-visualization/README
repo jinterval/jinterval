@@ -1,0 +1,21 @@
+*** Build instruction:
+
+1) Check that JDK1.7.0u10 is installed and JAVA_HOME environment variable is properly set.
+
+2) Install maven3 from
+http://maven.apache.org/download.html
+
+3) Go to JDK1.7.0u10\jre\lib in your shell (command prompt)
+   Execute mvn install:install-file -Dfile=jfxrt.jar -DgroupId=com.oracle -DartifactId=javafx -Dpackaging=jar -Dversion=2.2.4
+
+4) Type in command-line (or in Cygwin prompt window)
+from the directory that contains this file (let it be $JINTERVAL)
+
+cd $JINTERVAL
+mvn clean install
+cd ils-visualizer
+mvn assembly:assembly
+
+4) Find file $JINTERVAL/ils-visualization/target/ils-visualization-0.1-SNAPSHOT-with-dependencies.jar
+
+

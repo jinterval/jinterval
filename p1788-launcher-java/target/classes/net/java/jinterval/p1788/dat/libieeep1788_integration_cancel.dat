@@ -1,0 +1,38 @@
+# Converted from libieeep1788/test/p1788/infsup/test_p1788_infsup_test_integration_mpfr_bin_ieee754_flavor_cancel.cpp
+* cancelPlus
+[-0x1.4666666666666p+2   ,-0x1.ccccccccccccdp-1   ] | [+0x1.0000000000000p+0   ,+0x1.4000000000000p+2   ]
+[-0x1.0000000000000p+0   ,+0x1.fffffffffffffp-53  ] | [-0x1.0000000000000p+0   ,+0x1.ffffffffffffep-53  ]
+[-0x1.4000000000000p+2   ,-0x1.ccccccccccccdp-1   ] | [+0x1.0000000000000p+0   ,+0x1.4000000000000p+2   ]
+[-0x1.4666666666666p+2   ,+0x0.0000000000000p+0   ]_com | [+0x0.0000000000000p+0   ,+0x1.4000000000000p+2   ]_com
+[-0x1.4666666666666p+2   ,+0x0.0000000000000p+0   ]_com | [+0x0.0000000000000p+0   ,+0x1.4000000000000p+2   ]_com
+* decorationPart
+[-0x1.9999999999980p-4   ,+0x0.0000000000000p+0   ]_trv
+* cancelPlus
+[+0x1.ccccccccccccdp-1   ,+0x1.4666666666666p+2   ]_dac | [-0x1.4000000000000p+2   ,-0x1.0000000000000p+0   ]_com
+[+0x1.ccccccccccccdp-1   ,+0x1.4666666666666p+2   ]_dac | [-0x1.4000000000000p+2   ,-0x1.0000000000000p+0   ]_com
+* decorationPart
+[-0x1.9999999999998p-4   ,+0x1.9999999999980p-4   ]_trv
+* cancelPlus
+[-0x1.4000000000000p+2   ,-0x1.ccccccccccccdp-1   ]_com | [+0x1.0000000000000p+0   ,+0x1.4000000000000p+2   ]_com
+[-0x1.4000000000000p+2   ,-0x1.ccccccccccccdp-1   ]_com | [+0x1.0000000000000p+0   ,+0x1.4000000000000p+2   ]_com
+* decorationPart
+[-0x0.000000p+0  ,+0x1.99999ap-4  ]_trv
+* cancelMinus
+[-0x1.4666666666666p+2   ,-0x1.ccccccccccccdp-1   ] | [-0x1.4000000000000p+2   ,-0x1.0000000000000p+0   ]
+[-0x1.0000000000000p+0   ,+0x1.fffffffffffffp-53  ] | [-0x1.ffffffffffffep-53  ,+0x1.0000000000000p+0   ]
+[-0x1.4000000000000p+2   ,-0x1.ccccccccccccdp-1   ] | [-0x1.4000000000000p+2   ,-0x1.0000000000000p+0   ]
+[-0x1.4666666666666p+2   ,+0x0.0000000000000p+0   ]_com | [-0x1.4000000000000p+2   ,+0x0.0000000000000p+0   ]_com
+[-0x1.4666666666666p+2   ,+0x0.0000000000000p+0   ]_com | [-0x1.4000000000000p+2   ,+0x0.0000000000000p+0   ]_com
+* decorationPart
+[-0x1.9999999999980p-4   ,+0x0.0000000000000p+0   ]_trv
+* cancelMinus
+[+0x1.ccccccccccccdp-1   ,+0x1.4666666666666p+2   ]_dac | [+0x1.0000000000000p+0   ,+0x1.4000000000000p+2   ]_com
+[+0x1.ccccccccccccdp-1   ,+0x1.4666666666666p+2   ]_dac | [+0x1.0000000000000p+0   ,+0x1.4000000000000p+2   ]_com
+* decorationPart
+[-0x1.9999999999998p-4   ,+0x1.9999999999980p-4   ]_trv
+* cancelMinus
+[-0x1.4000000000000p+2   ,-0x1.ccccccccccccdp-1   ]_com | [-0x1.4000000000000p+2   ,-0x1.0000000000000p+0   ]_com
+[-0x1.4000000000000p+2   ,-0x1.ccccccccccccdp-1   ]_com | [-0x1.4000000000000p+2   ,-0x1.0000000000000p+0   ]_com
+* decorationPart
+[-0x0.000000p+0  ,+0x1.99999ap-4  ]_trv
+

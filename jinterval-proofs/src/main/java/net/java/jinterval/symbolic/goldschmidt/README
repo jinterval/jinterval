@@ -1,0 +1,4 @@
+This directory contains application of JInterval
+for computer arithmetic. Here is an error analysis
+of R. E. Goldshmidt algorithm for floating-point
+division and squre root.

@@ -1,0 +1,139 @@
+# Converted from libieeep1788/test/p1788/infsup/test_p1788_infsup_test_integration_mpfr_bin_ieee754_flavor_class.cpp
+* inf
+[-0x1.0000000000000p+0   ,+0x1.0000000000000p+1   ]
+* sup
+[-0x1.0000000000000p+0   ,+0x1.0000000000000p+1   ]
+* inf
+[-0x1.0000000000000p+0   ,+0x1.0000000000000p+1   ]_com
+* sup
+[-0x1.0000000000000p+0   ,+0x1.0000000000000p+1   ]_com
+* decorationPart
+[-0x1.0000000000000p+0   ,+0x1.0000000000000p+1   ]_com
+* inf
+[+0x1.999998p-4  ,+0x1.0cccccp+1  ]
+* sup
+[+0x1.999998p-4  ,+0x1.0cccccp+1  ]
+* inf
+[+0x1.999998p-4  ,+0x1.0cccccp+1  ]_com
+* sup
+[+0x1.999998p-4  ,+0x1.0cccccp+1  ]_com
+* decorationPart
+[+0x1.999998p-4  ,+0x1.0cccccp+1  ]_com
+* inf
+[-0x1.0000000000000p+0   ,+0x1.0000000000000p+1   ]_def
+* sup
+[-0x1.0000000000000p+0   ,+0x1.0000000000000p+1   ]_def
+* decorationPart
+[-0x1.0000000000000p+0   ,+0x1.0000000000000p+1   ]_def
+* inf
+[+0x1.999998p-4  ,+0x1.0cccccp+1  ]_def
+* sup
+[+0x1.999998p-4  ,+0x1.0cccccp+1  ]_def
+* decorationPart
+[+0x1.999998p-4  ,+0x1.0cccccp+1  ]_def
+* textToInterval
+"[0.1, 2.1]"
+* inf
+[+0x1.9999999999999p-4   ,+0x1.0cccccccccccdp+1   ]
+* textToInterval
+"[0.1, 2.1]"
+* sup
+[+0x1.9999999999999p-4   ,+0x1.0cccccccccccdp+1   ]
+* textToInterval
+"[0.1]"
+* inf
+[+0x1.9999999999999p-4   ,+0x1.999999999999ap-4   ]
+* textToInterval
+"[0.1]"
+* sup
+[+0x1.9999999999999p-4   ,+0x1.999999999999ap-4   ]
+* textToInterval
+"2.500?5"
+* inf
+[+0x1.3f5c28f5c28f5p+1   ,+0x1.40a3d70a3d70bp+1   ]
+* textToInterval
+"2.500?5"
+* sup
+[+0x1.3f5c28f5c28f5p+1   ,+0x1.40a3d70a3d70bp+1   ]
+* textToInterval
+"[0.1, 2.1]_def"
+"[3.0,-1.0]"
+* textToDecoratedInterval
+"[0.1, 2.1]_def"
+* inf
+[+0x1.9999999999999p-4   ,+0x1.0cccccccccccdp+1   ]_def
+* textToDecoratedInterval
+"[0.1, 2.1]_def"
+* sup
+[+0x1.9999999999999p-4   ,+0x1.0cccccccccccdp+1   ]_def
+* textToDecoratedInterval
+"[0.1, 2.1]_def"
+* decorationPart
+[+0x1.999998p-4  ,+0x1.0ccccep+1  ]_def
+* textToDecoratedInterval
+"[0.1]"
+* inf
+[+0x1.9999999999999p-4   ,+0x1.999999999999ap-4   ]_com
+* textToDecoratedInterval
+"[0.1]"
+* sup
+[+0x1.9999999999999p-4   ,+0x1.999999999999ap-4   ]_com
+* textToDecoratedInterval
+"[0.1]"
+* decorationPart
+[+0x1.999998p-4  ,+0x1.99999ap-4  ]_com
+* textToDecoratedInterval
+"2.500?5"
+* inf
+[+0x1.3f5c28f5c28f5p+1   ,+0x1.40a3d70a3d70bp+1   ]_com
+* textToDecoratedInterval
+"2.500?5"
+* sup
+[+0x1.3f5c28f5c28f5p+1   ,+0x1.40a3d70a3d70bp+1   ]_com
+* textToDecoratedInterval
+"2.500?5"
+* decorationPart
+[+0x1.3f5c28p+1  ,+0x1.40a3d8p+1  ]_com
+* textToDecoratedInterval
+"[3.0,-1.0]"
+* inf
+[-0x1.0000000000000p+0   ,+0x1.0000000000000p+1   ]
+* sup
+[-0x1.0000000000000p+0   ,+0x1.0000000000000p+1   ]
+* inf
+[-0x1.0000000000000p+0   ,+0x1.0000000000000p+1   ]_com
+* sup
+[-0x1.0000000000000p+0   ,+0x1.0000000000000p+1   ]_com
+* decorationPart
+[-0x1.0000000000000p+0   ,+0x1.0000000000000p+1   ]_com
+* convertType
+[+0x1.999999999999ap-4   ,+0x1.0cccccccccccdp+1   ]
+* inf
+[+0x1.999998p-4  ,+0x1.0ccccep+1  ]
+* convertType
+[+0x1.999999999999ap-4   ,+0x1.0cccccccccccdp+1   ]
+* sup
+[+0x1.999998p-4  ,+0x1.0ccccep+1  ]
+* convertType
+[+0x1.999999999999ap-4   ,+0x1.0cccccccccccdp+1   ]_com
+* inf
+[+0x1.999998p-4  ,+0x1.0ccccep+1  ]_com
+* convertType
+[+0x1.999999999999ap-4   ,+0x1.0cccccccccccdp+1   ]_com
+* sup
+[+0x1.999998p-4  ,+0x1.0ccccep+1  ]_com
+* convertType
+[+0x1.999999999999ap-4   ,+0x1.0cccccccccccdp+1   ]_com
+* decorationPart
+[+0x1.999998p-4  ,+0x1.0ccccep+1  ]_com
+* intervalPart
+[+0x1.999999999999ap-4   ,+0x1.0cccccccccccdp+1   ]_com
+[]_ill
+[+0x1.999999999999ap-4   ,+0x1.0cccccccccccdp+1   ]_com
+[]_ill
+* newDec
+[+0x1.999999999999ap-4   ,+0x1.0cccccccccccdp+1   ]
+[+0x1.999999999999ap-4   ,+0x1.0cccccccccccdp+1   ]
+* setDec
+[+0x1.999999999999ap-4   ,+0x1.0cccccccccccdp+1   ] | def
+[+0x1.999999999999ap-4   ,+0x1.0cccccccccccdp+1   ] | def

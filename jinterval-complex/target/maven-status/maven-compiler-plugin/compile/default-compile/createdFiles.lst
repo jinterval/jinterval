@@ -1,0 +1,9 @@
+net/java/jinterval/complex/ComplexInterval.class
+net/java/jinterval/complex/ComplexIntervalContextBoxFast.class
+net/java/jinterval/complex/ComplexIntervalDoubleDisc.class
+net/java/jinterval/complex/ComplexIntervalContext.class
+net/java/jinterval/complex/ComplexIntervalRationalBox.class
+net/java/jinterval/complex/ComplexIntervalDoubleBox.class
+net/java/jinterval/complex/ComplexIntervalEmpty.class
+net/java/jinterval/complex/ComplexIntervalContexts.class
+net/java/jinterval/complex/ComplexIntervalContextBoxRational.class

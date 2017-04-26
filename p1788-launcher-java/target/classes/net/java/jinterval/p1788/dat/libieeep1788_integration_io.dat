@@ -1,0 +1,21 @@
+# Converted from libieeep1788/test/p1788/infsup/test_p1788_infsup_test_integration_mpfr_bin_ieee754_flavor_io.cpp
+* intervalToText
+[]
+[-inf                    ,+inf                    ]
+[+0x1.000000p+0  ,+0x1.0ccccep+1  ]
+[+0x0.0000000000000p+0   ,-0x0.0000000000000p+0   ]
+[]_ill
+[]_trv
+[-inf                    ,+inf                    ]_dac
+[+0x1.0000000000000p+0   ,+0x1.0cccccccccccdp+1   ]_com
+[-inf                    ,+inf                    ]
+[-inf                    ,+inf                    ]_dac
+* intervalToExact
+[]
+[+0x1.000000p+0  ,+0x1.0ccccep+1  ]
+[]_ill
+[]_trv
+[-inf                    ,+inf                    ]_dac
+[+0x1.000000p+0  ,+0x1.0ccccep+1  ]_com
+* operator_text_to_interval
+* operator_text_to_dec_interval

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="net.java.jinterval.rational.RationalTest" time="0.032" tests="39" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
+    <property name="java.vm.version" value="25.121-b13"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="/media/data/dev/lib_source/jinterval~svn/trunk/jinterval"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/media/data/dev/lib_source/jinterval~svn/trunk/jinterval"/>
+    <property name="java.runtime.version" value="1.8.0_121-b13"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/usr/share/maven/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="4.4.0-75-generic"/>
+    <property name="user.home" value="/home/astronaut"/>
+    <property name="user.timezone" value="Asia/Jakarta"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="user.name" value="astronaut"/>
+    <property name="java.class.path" value="/usr/share/maven/boot/plexus-classworlds-2.x.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/usr/lib/jvm/java-8-oracle/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_121"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="securerandom.source" value="file:/dev/./urandom"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="/usr/share/maven"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase name="testDoubleValueCeiling" classname="net.java.jinterval.rational.RationalTest" time="0.001"/>
+  <testcase name="testFloatValue" classname="net.java.jinterval.rational.RationalTest" time="0.001"/>
+  <testcase name="testDoubleValue_RoundingMode" classname="net.java.jinterval.rational.RationalTest" time="0.005"/>
+  <testcase name="testIsNegativeInfinity" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testAdd" classname="net.java.jinterval.rational.RationalTest" time="0.006"/>
+  <testcase name="testMax" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testMin" classname="net.java.jinterval.rational.RationalTest" time="0.001"/>
+  <testcase name="testByteValue" classname="net.java.jinterval.rational.RationalTest" time="0.001"/>
+  <testcase name="testSubtract" classname="net.java.jinterval.rational.RationalTest" time="0.002"/>
+  <testcase name="testGetP" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testGetQ" classname="net.java.jinterval.rational.RationalTest" time="0.001"/>
+  <testcase name="testCompareTo" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testIsPositiveInfinity" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testIsFinite" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testValueOf_3args" classname="net.java.jinterval.rational.RationalTest" time="0.001"/>
+  <testcase name="testValueOf_long" classname="net.java.jinterval.rational.RationalTest" time="0.001"/>
+  <testcase name="testValueOf_pow2" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testBadStrings" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testGetDenominator" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testLongValue" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testShortValue" classname="net.java.jinterval.rational.RationalTest" time="0.001"/>
+  <testcase name="testValueOf_double_NaN" classname="net.java.jinterval.rational.RationalTest" time="0.001"/>
+  <testcase name="testGetNominator" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testFromToString" classname="net.java.jinterval.rational.RationalTest" time="0.002"/>
+  <testcase name="testDoubleValueFloor" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testValueOf_integer_BigInteger" classname="net.java.jinterval.rational.RationalTest" time="0.001"/>
+  <testcase name="testIntValue" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testDivide" classname="net.java.jinterval.rational.RationalTest" time="0.003"/>
+  <testcase name="testEquals" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testMultiply" classname="net.java.jinterval.rational.RationalTest" time="0.002"/>
+  <testcase name="testGetExp" classname="net.java.jinterval.rational.RationalTest" time="0.001"/>
+  <testcase name="testValueOf_double" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testInverse" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testNegate" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testValueOf_BigDecimal" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testSignum" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testDoubleValue" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+  <testcase name="testValueOf_BigInteger_BigInteger" classname="net.java.jinterval.rational.RationalTest" time="0.001"/>
+  <testcase name="testValueOf_int" classname="net.java.jinterval.rational.RationalTest" time="0"/>
+</testsuite>

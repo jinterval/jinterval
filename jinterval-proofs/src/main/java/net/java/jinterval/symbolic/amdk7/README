@@ -1,0 +1,4 @@
+This is a translation to Java of Goldschmidt
+floating-point division and square root algorithm
+that was published in D. Russinoff's paper:
+http://www.russinoff.com/papers/k7-div-sqrt.html

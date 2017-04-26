@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>net.java.jinterval</groupId>
+        <artifactId>jinterval</artifactId>
+        <version>0.1-SNAPSHOT</version>
+        <relativePath>..</relativePath>
+    </parent>
+    <artifactId>boehm-creals</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>boehm-creals</name>
+    <description>
+        Hans Boehm's Constructive Reals.
+    </description>
+
+    <scm>
+        <connection>scm:svn:https://svn.java.net/svn/jinterval~svn/trunk/jinterval/boehm-creals</connection>
+        <developerConnection>scm:svn:https://svn.java.net/svn/jinterval~svn/trunk/jinterval/boehm-creals</developerConnection>
+        <url>http://java.net/projects/jinterval/sources/svn/show/trunk/jinterval/boehm-creals</url>
+    </scm>
+</project>

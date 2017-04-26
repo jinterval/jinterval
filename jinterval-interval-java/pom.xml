@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>net.java.jinterval</groupId>
+        <artifactId>jinterval</artifactId>
+        <version>0.1-SNAPSHOT</version>
+        <relativePath>..</relativePath>
+    </parent>
+    <artifactId>jinterval-interval-java</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>jinterval-interval-java</name>
+    <description>
+        JInterval subproject that implements Interval.
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>interval-expression</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>jinterval-rational-java</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+    
+    <scm>
+        <connection>scm:svn:https://svn.java.net/svn/jinterval~svn/trunk/jinterval/jinterval-interval-java</connection>
+        <developerConnection>scm:svn:https://svn.java.net/svn/jinterval~svn/trunk/jinterval/jinterval-interval-java</developerConnection>
+        <url>http://java.net/projects/jinterval/sources/svn/show/trunk/jinterval/jinterval-interval-java</url>
+    </scm>
+</project>
