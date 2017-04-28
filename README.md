@@ -1,5 +1,4 @@
-[![](https://jitpack.io/v/User/jinterval.svg)]
-(https://jitpack.io/#jinterval/jinterval) 
+[![](https://jitpack.io/v/jinterval/jinterval.svg)](https://jitpack.io/#jinterval/jinterval)
 [![Build Status](https://travis-ci.org/jinterval/jinterval.svg?branch=master)](https://travis-ci.org/jinterval/jinterval)
 
 ## Build instruction:
