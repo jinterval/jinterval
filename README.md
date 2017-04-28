@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jinterval/jinterval.svg?branch=master)](https://travis-ci.org/jinterval/jinterval)
+
 *** Build instruction:
 
 1) Check that JDK7 or JDK8 is installed and JAVA_HOME environment variable is properly set.
