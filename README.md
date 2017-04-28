@@ -1,5 +1,6 @@
-[![Release](https://jitpack.io/v/User/Repo.svg)]
-(https://jitpack.io/#jinterval/jinterval) [![Build Status](https://travis-ci.org/jinterval/jinterval.svg?branch=master)](https://travis-ci.org/jinterval/jinterval)
+[![](https://jitpack.io/v/User/jinterval.svg)]
+(https://jitpack.io/#jinterval/jinterval) 
+[![Build Status](https://travis-ci.org/jinterval/jinterval.svg?branch=master)](https://travis-ci.org/jinterval/jinterval)
 
 ## Build instruction:
 
