@@ -156,6 +156,7 @@ public class ToDecRange {
                     ? Rational.valueOf(BigInteger.TEN.pow(e))
                     : RationalOps.recip(Rational.valueOf(BigInteger.TEN.pow(-e)));
             Rational alpha = RationalOps.div(Rational.exp2(range.qb), ulpD);
+            alpha = RationalOps.mul(Rational.valueOf(2), alpha);
 //            System.out.println("  alpha=" + alpha);
             Fractions fractions = new Fractions(alpha);
             BigInteger cbExact = fractions.searchExact(cbMin, cbMax);
