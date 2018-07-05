@@ -25,6 +25,7 @@
  */
 package net.java.jinterval.interval;
 
+import java.io.Serializable;
 import net.java.jinterval.interval.set.OverlapState;
 import net.java.jinterval.interval.classic.ClassicInterval;
 import net.java.jinterval.interval.kaucher.KaucherInterval;
@@ -34,7 +35,7 @@ import net.java.jinterval.rational.*;
 /**
  *
  */
-abstract class DoubleInterval implements Interval {
+abstract class DoubleInterval implements Interval, Serializable {
 
     private final double inf;
     private final double sup;

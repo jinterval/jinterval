@@ -25,6 +25,7 @@
  */
 package net.java.jinterval.interval;
 
+import java.io.Serializable;
 import net.java.jinterval.interval.set.OverlapState;
 import net.java.jinterval.interval.classic.ClassicInterval;
 import net.java.jinterval.interval.set.SetInterval;
@@ -34,7 +35,7 @@ import net.java.jinterval.rational.*;
 /**
  *
  */
-class RationalInterval implements Interval {
+class RationalInterval implements Interval, Serializable {
 
     private final ExtendedRational inf;
     private final ExtendedRational sup;

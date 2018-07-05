@@ -25,6 +25,7 @@
  */
 package net.java.jinterval.interval.set;
 
+import java.io.Serializable;
 import net.java.jinterval.interval.Decoration;
 import net.java.jinterval.interval.Interval;
 import net.java.jinterval.interval.MidRad;
@@ -36,7 +37,7 @@ import net.java.jinterval.rational.Rational;
 /**
  *
  */
-class EmptyInterval implements SetInterval {
+class EmptyInterval implements SetInterval, Serializable {
 
     public static final EmptyInterval NaI = new EmptyInterval(Decoration.ILL);
     public static final EmptyInterval Empty = new EmptyInterval(Decoration.TRV);
