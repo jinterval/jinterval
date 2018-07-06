@@ -220,14 +220,15 @@ public class ToDecTable implements Serializable {
         out.println("");
         out.println("private static p(int q, long ch, long cl) {}");
         out.println();
+        long MASK = (1L << 63) - 1;
         for (int p = pMin; p <= pMax; p++) {
-            int q = pow5.intFloorLog2() - 127;
+            int q = pow5.intFloorLog2() + 1 - 2*63;
             BigInteger c = RationalOps.div(pow5, Rational.exp2(q)).toBigInteger();
             if (p != 0) {
                 c = c.add(BigInteger.ONE);
             }
-            long cl = c.longValue();
-            long ch = c.shiftRight(64).longValue();
+            long cl = c.longValue() & MASK;
+            long ch = c.shiftRight(63).longValue() & MASK;
             out.printf("  p(%d, 0x%016xL, 0x%016xL); // 5^%d\n", q, ch, cl, p);
             pow5 = RationalOps.mul(pow5, Rational.valueOf(5));
         }
