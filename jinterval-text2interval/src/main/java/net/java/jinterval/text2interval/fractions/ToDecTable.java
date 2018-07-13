@@ -59,9 +59,54 @@ public class ToDecTable implements Serializable {
     final Rational vrMax;
     final int r;
 
+    private static int ord10pow2(int e) {
+        // Constants suggested by Raffaello Giulietti
+        long Q = 41;
+        long C = 661_971_961_083L;
+        return (int) ((C * e) >> Q) + 1;
+    }
+
+    private static int ord2pow10(int e) {
+        // Constants suggested by Raffaello Giulietti
+        long Q = 40;
+        long C = 3_652_498_566_964L;
+        return (int) ((C * e) >> Q) + 1;
+    }
+
+    private static void checkOrd10pow2() {
+        int e_range = 2048;
+//        int e_range = 5_456_721;
+        int cacheOrd10 = ord10pow2(-e_range);
+        Rational cachePow10Pred = RationalOps.recip(Rational.valueOf(BigInteger.TEN.pow(-cacheOrd10 + 1)));
+        Rational cachePow10 = RationalOps.mul(cachePow10Pred, Rational.valueOf(10));
+        for (int e = -e_range; e <= e_range; e++) {
+            int ord10 = ord10pow2(e);
+            while (cacheOrd10 != ord10) {
+                cacheOrd10++;
+                cachePow10Pred = cachePow10;
+                cachePow10 = RationalOps.mul(cachePow10, Rational.valueOf(10));
+            }
+            Rational pow2 = Rational.exp2(e);
+            assert cachePow10Pred.compareTo(pow2) <= 0;
+            assert pow2.compareTo(cachePow10) < 0;
+        }
+    }
+
+    private static void checkOrd2pow10() {
+        int e_range = 2048;
+//        int e_range = 5_456_721;
+        Rational pow10 = RationalOps.recip(Rational.valueOf(BigInteger.TEN.pow(e_range)));
+        for (int e = -e_range; e <= e_range; e++) {
+            int ord2 = ord2pow10(e);
+            assert ord2 == pow10.intFloorLog2() + 1;
+            pow10 = RationalOps.mul(pow10, Rational.valueOf(10));
+        }
+    }
+
     private ToDecTable(BinaryValueSet f, int qb, int r) {
         this.f = f;
         this.qb = qb;
+        int q = qb + 1;
         int e = qb + f.getPrecision();
         assert f.getMinExp() <= e && e <= f.getMaxExp();
         this.cblMin = e == f.getMinExp()
@@ -71,7 +116,8 @@ public class ToDecTable implements Serializable {
         vlMin = Rational.valueOf(cblMin, qb);
         vrMax = Rational.valueOf(cbrMax, qb);
         this.r = r;
-        Rational ulp = Rational.exp2(qb + 1);
+        assert r == ord10pow2(q) - 1;
+        Rational ulp = Rational.exp2(q);
         Rational ulpD = r >= 0
                 ? Rational.valueOf(BigInteger.TEN.pow(r))
                 : RationalOps.recip(Rational.valueOf(BigInteger.TEN.pow(-r)));
@@ -204,14 +250,8 @@ public class ToDecTable implements Serializable {
             return (List<ToDecTable>) in.readObject();
         }
     }
-    
+
     private static void genTableR(PrintStream out, List<ToDecTable> table) {
-        out.println("static int[] tableR = {");
-        for (ToDecTable entry: table) {
-            out.println("  " + entry.r + ", // qb=" + entry.qb);
-        }
-        out.println("};");
-        out.println();
         int pMin = -table.get(table.size() - 1).r;
         int pMax = -table.get(0).r;
         out.println("static final int MIN_POW_5 = " + pMin + ";");
@@ -222,7 +262,7 @@ public class ToDecTable implements Serializable {
         out.println();
         long MASK = (1L << 63) - 1;
         for (int p = pMin; p <= pMax; p++) {
-            int q = pow5.intFloorLog2() + 1 - 2*63;
+            int q = pow5.intFloorLog2() + 1 - 2 * 63;
             BigInteger c = RationalOps.div(pow5, Rational.exp2(q)).toBigInteger();
             if (p != 0) {
                 c = c.add(BigInteger.ONE);
@@ -235,6 +275,8 @@ public class ToDecTable implements Serializable {
     }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
+        checkOrd10pow2();
+        checkOrd2pow10();
         BinaryValueSet f = BinaryValueSet.BINARY64;
         File file = new File("double-table,ser");
         writeTable(f, file);

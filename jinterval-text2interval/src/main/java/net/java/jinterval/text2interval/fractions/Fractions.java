@@ -28,6 +28,8 @@ package net.java.jinterval.text2interval.fractions;
 import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import net.java.jinterval.interval.set.SetInterval;
+import net.java.jinterval.interval.set.SetIntervalOps;
 import net.java.jinterval.rational.BinaryValueSet;
 import net.java.jinterval.rational.ExtendedRational;
 import net.java.jinterval.rational.ExtendedRationalContext;
@@ -61,10 +63,9 @@ public class Fractions {
      */
     private final Fraction fractionM1;
     /**
-     * Sequence of fractions with increasing accuracy.
-     * Even fractions are approximations below.
-     * Odd fractions are approximations above.
-     * Zero fraction is natural number
+     * Sequence of fractions with increasing accuracy. Even fractions are
+     * approximations below. Odd fractions are approximations above. Zero
+     * fraction is natural number
      */
     private final ArrayList<Fraction> fracts = new ArrayList<Fraction>();
 
@@ -105,6 +106,7 @@ public class Fractions {
 
     /**
      * Ceiling of x/d assuming that d is positive
+     *
      * @param x dividend
      * @param d positive divider
      * @return ceiling of x/d
@@ -122,6 +124,7 @@ public class Fractions {
 
     /**
      * Floor of x/d assuming that d is positive
+     *
      * @param x dividend
      * @param d positive divider
      * @return ceiling of x/d
@@ -139,6 +142,7 @@ public class Fractions {
 
     /**
      * Search for such x in the range [xMin..xMax] that x*alpha is exact integer
+     *
      * @param xMin minimal x
      * @param xMax maximal x
      * @return either found x or null
@@ -258,9 +262,50 @@ public class Fractions {
         }
     }
 
+    void printBounds() {
+        System.out.println("alpha = " + alpha);
+        System.out.print(" = ");
+        for (Fraction f : fracts) {
+            System.out.print(f.q);
+            if (f.level < fracts.size() - 1) {
+                System.out.print(" + 1/(");
+            }
+        }
+        for (int i = 1; i < fracts.size(); i++) {
+            System.out.print(")");
+        }
+        System.out.println();
+        for (Fraction f : fracts) {
+            System.out.print(" " + f.numerator + "/" + f.denominator);
+        }
+        System.out.println();
+
+        SetInterval fracRange = SetIntervalOps.empty();
+        for (Fraction f : fracts) {
+            if (f.level == 0) {
+                continue;
+            }
+            BigInteger i = BigInteger.ONE;
+            do {
+                BigInteger qq = f.prev.prev.denominator.add(f.prev.denominator.multiply(i));
+                Rational v = RationalOps.mul(alpha, Rational.valueOf(qq));
+                BigInteger iv = v.toBigInteger();
+                Rational fracV = RationalOps.sub(v, Rational.valueOf(iv));
+//                System.out.println(f.prev.prev.denominator + " + " + i + " * " + f.prev.denominator
+//                        + " = " + qq);
+                if (qq.compareTo(BigInteger.ONE) > 0) {
+                    System.out.println("0 < i < " + qq + " ==> " + fracRange.inf() + " <= frac(alpha*i) <= " + fracRange.sup());
+                }
+                System.out.println("frac(alpha*" + qq + ") = " + fracV);
+                fracRange = SetIntervalOps.convexHull(fracRange, SetIntervalOps.nums2(fracV, fracV));
+                i = i.add(BigInteger.ONE);
+            } while (i.compareTo(f.q) <= 0);
+        }
+    }
+
     /**
-     * Integer point (x,y) with x less than denominator of a fraction
-     * which is above/below line y = x*alpha, odd/even and closest to the line
+     * Integer point (x,y) with x less than denominator of a fraction which is
+     * above/below line y = x*alpha, odd/even and closest to the line
      */
     private class Record {
 
@@ -299,13 +344,13 @@ public class Fractions {
 
         /**
          * Update record if point (newX,newY_) is closer to the line y = x*alpha
-         * than previous point.
-         * Check that newY_ is the closest odd/even point with given x=newX
-         * which is strictly above/below the line y = x*alpha
+         * than previous point. Check that newY_ is the closest odd/even point
+         * with given x=newX which is strictly above/below the line y = x*alpha
+         *
          * @param newX x-coordinate of candidate point
          * @param newY_ expected y-coordinate of candidate point
          * @param isAbove above/below
-         * @param isOdd  odd/even
+         * @param isOdd odd/even
          */
         private void update(BigInteger newX, BigInteger newY_, boolean isAbove, boolean isOdd) {
             assert isAbove == isAbove_;
@@ -342,8 +387,9 @@ public class Fractions {
         }
 
         /**
-         * Update record of a fraction by candidate point which
-         * is some reference point plus record of the previous (rougher) fraction
+         * Update record of a fraction by candidate point which is some
+         * reference point plus record of the previous (rougher) fraction
+         *
          * @param subX x-coordinate of reference point
          * @param subY y-coordinate of reference point
          * @param subRecord record of prevoud fraction
@@ -431,7 +477,8 @@ public class Fractions {
                     r = Rational.valueOf(numerator, denominator);
                     if (level == 0) {
                         assert denominator.equals(BigInteger.ONE);
-                    }   break;
+                    }
+                    break;
             }
             assert numerator.equals(r.biNumerator());
             assert denominator.equals(r.biDenominator());
@@ -683,5 +730,11 @@ public class Fractions {
             }
             return null;
         }
+    }
+
+    public static void main(String[] args) {
+        Rational alpha = Rational.valueOf(43, 33);
+        Fractions fractions = new Fractions(alpha);
+        fractions.printBounds();
     }
 }
