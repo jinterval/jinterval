@@ -181,6 +181,8 @@ public class ToDecTable implements Serializable {
             alpha = RationalOps.mul(Rational.valueOf(2), alpha);
 //            System.out.println("  alpha=" + alpha);
             Fractions fractions = new Fractions(alpha);
+            fractions.printBounds2();
+//            fractions.printBounds();
             BigInteger cbExact = fractions.searchExact(cblMin, cbrMax);
             if (cbExact != null) {
                 Rational fH = RationalOps.mul(Rational.valueOf(cbExact), alpha);
@@ -209,7 +211,7 @@ public class ToDecTable implements Serializable {
                 if (eps1.signum() > 0 && (epsMax == null || eps.compareTo(epsMax) > 0)) {
                     epsMax = eps;
                 }
-                System.out.println("  above cb=0x" + cbAbove.toString(16) + " eps=1-" + Double.toHexString(eps.doubleValue()));
+                System.out.println("  above cb=0x" + cbAbove.toString(16) + " eps=1-" + Double.toHexString(eps1.doubleValue()));
             }
         }
         return SetIntervalOps.nums2(epsMin, epsMax);
@@ -279,8 +281,9 @@ public class ToDecTable implements Serializable {
         checkOrd2pow10();
         BinaryValueSet f = BinaryValueSet.BINARY64;
         File file = new File("double-table,ser");
-        writeTable(f, file);
+//        writeTable(f, file);
         List<ToDecTable> table = readTable(file);
+        findNonzeroFract(f, table);
         genTableR(System.out, table);
     }
 }

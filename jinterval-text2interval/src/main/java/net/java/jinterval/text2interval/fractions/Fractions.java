@@ -264,6 +264,7 @@ public class Fractions {
 
     void printBounds() {
         System.out.println("alpha = " + alpha);
+        System.out.println(" = " + alpha.biNumerator() + " / " + alpha.biDenominator());
         System.out.print(" = ");
         for (Fraction f : fracts) {
             System.out.print(f.q);
@@ -297,9 +298,63 @@ public class Fractions {
                     System.out.println("0 < i < " + qq + " ==> " + fracRange.inf() + " <= frac(alpha*i) <= " + fracRange.sup());
                 }
                 System.out.println("frac(alpha*" + qq + ") = " + fracV);
+                if (i.equals(f.q)) {
+                    assert fracV.equals(f.fracAlphaDen);
+                    assert fracRange.equal(f.fracAlphaDenHull);
+                }
                 fracRange = SetIntervalOps.convexHull(fracRange, SetIntervalOps.nums2(fracV, fracV));
                 i = i.add(BigInteger.ONE);
             } while (i.compareTo(f.q) <= 0);
+        }
+    }
+
+    void printBounds2() {
+        System.out.println("alpha = " + alpha.doubleValue());
+        /*
+        System.out.print(" = ");
+        for (Fraction f : fracts) {
+            System.out.print(f.q);
+            if (f.level < fracts.size() - 1) {
+                System.out.print(" + 1/(");
+            }
+        }
+        for (int i = 1; i < fracts.size(); i++) {
+            System.out.print(")");
+        }
+        System.out.println();
+        for (Fraction f : fracts) {
+            System.out.print(" " + f.numerator + "/" + f.denominator);
+        }
+        System.out.println();
+         */
+
+        Rational eps = Rational.valueOf(0x1.5p-64);
+        BigInteger cbMax = BigInteger.ONE.shiftLeft(54).add(BigInteger.valueOf(2));
+        for (Fraction f : fracts) {
+            if (f.level == 0) {
+                continue;
+            }
+            if (!f.fracAlphaDenHull.isEmpty()) {
+                Rational inf = (Rational) f.fracAlphaDenHull.inf();
+                Rational sup1 = RationalOps.sub(Rational.one(), (Rational) f.fracAlphaDenHull.sup());
+                if (inf.le(eps) || sup1.le(eps)) {
+                    System.out.println("!!!!!!!!!!!!!!!!!");
+                }
+                System.out.println("0 < i < " + f.denominator.toString(16)
+                        + " ==> " + Double.toHexString(inf.doubleValue()) + " <= frac(alpha*i) <= 1 - "
+                        + Double.toHexString(sup1.doubleValue()));
+            }
+            if (f.level % 2 == 0) {
+                System.out.println("frac(alpha*" + f.denominator.toString(16) + ") = "
+                        + Double.toHexString(f.fracAlphaDen.doubleValue()));
+            } else {
+                Rational frac1 = RationalOps.sub(Rational.one(), f.fracAlphaDen);
+                System.out.println("frac(alpha*" + f.denominator.toString(16) + ") = 1 - "
+                        + Double.toHexString(frac1.doubleValue()));
+            }
+            if (f.denominator.compareTo(cbMax) > 0) {
+                break;
+            }
         }
     }
 
@@ -437,6 +492,15 @@ public class Fractions {
          */
         private final ExtendedRational r;
         /**
+         * Fractional part of alpha*denominator
+         */
+        private final Rational fracAlphaDen;
+        /**
+         * Hull of possible fractional parts of alpha*i where 0 < i <
+         * denominator.
+         */
+        private final SetInterval fracAlphaDenHull;
+        /**
          * True of approximation is above the line y = alpha*x
          */
         private final boolean aboveAlpha;
@@ -464,19 +528,41 @@ public class Fractions {
                     numerator = BigInteger.ZERO;
                     denominator = BigInteger.ONE;
                     r = Rational.zero();
+                    fracAlphaDen = null;
+                    fracAlphaDenHull = SetIntervalOps.empty();
                     break;
                 case -1:
                     numerator = BigInteger.ONE;
                     denominator = BigInteger.ZERO;
                     r = Rational.POSITIVE_INFINITY;
+                    fracAlphaDen = null;
+                    fracAlphaDenHull = SetIntervalOps.empty();
                     break;
                 default:
                     assert prev.level == level - 1;
                     numerator = prev.prev.numerator.add(prev.numerator.multiply(q));
                     denominator = prev.prev.denominator.add(prev.denominator.multiply(q));
                     r = Rational.valueOf(numerator, denominator);
-                    if (level == 0) {
+                    Rational alphaDen = RationalOps.mul(alpha, Rational.valueOf(denominator));
+                    BigInteger floorAlphaDen = alphaDen.toBigInteger();
+                    fracAlphaDen = RationalOps.sub(alphaDen, Rational.valueOf(floorAlphaDen));
+                    if (level == 0 || r.isInteger()) {
                         assert denominator.equals(BigInteger.ONE);
+                        fracAlphaDenHull = SetIntervalOps.empty();
+                    } else if (level % 2 == 0) {
+                        Rational fracHi = prev.fracAlphaDen;
+                        Rational fracHi1 = RationalOps.sub(Rational.one(), fracHi);
+                        Rational fracLo = RationalOps.add(fracAlphaDen, fracHi1);
+                        fracAlphaDenHull = SetIntervalOps.nums2(fracLo, fracHi);
+                    } else {
+                        Rational fracLo = prev.fracAlphaDen;
+                        Rational fracHi = fracAlphaDen;
+                        if (fracHi.signum() == 0) {
+                            assert fracLo.signum() > 0;
+                            fracHi = Rational.one();
+                        }
+                        fracHi = RationalOps.sub(fracHi, fracLo);
+                        fracAlphaDenHull = SetIntervalOps.nums2(fracLo, fracHi);
                     }
                     break;
             }
