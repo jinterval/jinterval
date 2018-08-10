@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: net.java.jinterval.complex.ComplexIntervalRationalBoxTest
--------------------------------------------------------------------------------
-Tests run: 56, Failures: 0, Errors: 0, Skipped: 54, Time elapsed: 0.092 sec - in net.java.jinterval.complex.ComplexIntervalRationalBoxTest

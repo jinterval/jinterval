@@ -25,6 +25,7 @@
  */
 package net.java.jinterval.rational;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.math.RoundingMode;
 
@@ -33,7 +34,7 @@ import java.math.RoundingMode;
  *
  * @author nadezhin
  */
-public class BinaryValueSet {
+public class BinaryValueSet implements Serializable {
 
     /**
      * A {@code BinaryValueSet} object whose settings have the values required
