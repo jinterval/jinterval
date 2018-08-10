@@ -264,14 +264,16 @@ public class ToDecTable implements Serializable {
         out.println();
         long MASK = (1L << 63) - 1;
         for (int p = pMin; p <= pMax; p++) {
-            int q = pow5.intFloorLog2() + 1 - 2 * 63;
-            BigInteger c = RationalOps.div(pow5, Rational.exp2(q)).toBigInteger();
-            if (p != 0) {
+            int q63 = pow5.intFloorLog2() + 1 - 63;
+            int q126 = pow5.intFloorLog2() + 1 - 2 * 63;
+            BigInteger c = RationalOps.div(pow5, Rational.exp2(q126)).toBigInteger();
+            if (pow5.ne(Rational.valueOf(c, q126))) {
                 c = c.add(BigInteger.ONE);
             }
             long cl = c.longValue() & MASK;
             long ch = c.shiftRight(63).longValue() & MASK;
-            out.printf("  p(%d, 0x%016xL, 0x%016xL); // 5^%d\n", q, ch, cl, p);
+            assert ch == RationalOps.div(pow5, Rational.exp2(q63)).longValue();
+            out.printf("  p(%d, 0x%016xL, 0x%016xL); // 5^%d\n", q126, ch, cl, p);
             pow5 = RationalOps.mul(pow5, Rational.valueOf(5));
         }
     }
